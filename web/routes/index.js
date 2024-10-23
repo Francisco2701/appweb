@@ -9,21 +9,21 @@ router.get('/', function(req, res, next) {
 
 
 router.get('/celebraciones', function(req, res, next) {
-  res.render("celebraciones", {head_title: "celebraciones"});
+  res.render("celebraciones",{head_title: "celebraciones"});
 });
 
 
 router.get('/contacta-con-nosotros', function(req, res, next) {
-  res.render("contacto", {head_title: "contacto"});
+  res.render("contacto",{head_title: "contacto"});
 });
 
 router.get('/contact-with-us', function(req, res, next) {
-  res.render("contacto", {head_title: "contacto"});
+  res.render("contacto",{head_title: "contacto"});
 });
 
 router.get('/galeria', function(req, res, next) {
   console.log(datos.getGalleryData());
-  res.render("galeria", {head_title: "galeria"});
+  res.render("galeria",{head_title: "galeria"});
 });
 
 router.get('/debug/:category/:id', function(req, res, next) {
