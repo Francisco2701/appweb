@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 
+var datos = require("../data/dataprovider")
 /* GET home page. */
 router.get('/', function(req, res, next) { 
   res.render('home', {head_title: "Principal"});
@@ -21,6 +22,7 @@ router.get('/contact-with-us', function(req, res, next) {
 });
 
 router.get('/galeria', function(req, res, next) {
+  console.log(datos.getGalleryData());
   res.render("galeria", {head_title: "galeria"});
 });
 
