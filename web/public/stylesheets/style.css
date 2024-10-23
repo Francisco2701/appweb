@@ -1,57 +1,178 @@
+@import url('https://fonts.googleapis.com/css2?family=Lilita+One&display=swap');
 @import url("vars.css");
 @import url("cta.css");
-@import url('https://fonts.googleapis.com/css2?family=Lilita+One&display=swap');
 @import url("offcanvas.css");
 @import url("header.css");
 @import url("footer.css");
 @import url("components.css");
 
-html,
-body {
-  margin: 0;
-  padding: 0;
+html,body {
+  margin:0;
+  padding:0;
 }
 
 
-
-
-
-main section {
-  max-width: var(--site-width);
-  margin: auto;
-}
-
-section.col2 {
-  display: flex;
+section.cols{
+  display:flex;
   flex-direction: column;
-  gap: 2rem;
+  justify-content: center;
+  align-items: center;
 
-  h2 {
-    text-align: center;
-    font-family: var(--font-family-header);
-  }
+  div.inner{
+    display:flex;
+    gap:2rem;
 
-  div.inner {
-    display: flex;
-    gap: 2rem;
-
-    * {
-      flex: 1;
+    *{
+      flex:1;
     }
   }
 
 }
 
-main#celebraciones {
+.boxed{
+  gap:1rem;
+  *{
+    max-width: var(--site-width);
+    margin:0 auto;
+  }
+}
+
+footer.boxed{
+  *{
+    max-width: calc( var(--site-width) + 10rem );
+  }
+}
+
+section h2{
+  text-align: center;
+  font-family: var(--font-family-header);
+  font-size:3rem;
+}
+
+
+section#presentacion{
+  min-height: 100vh;
+}
+
+section#banner{
+  background-color: black;
+  background-image: url( ../images/fondo-cta.jpg );
+  transform: skewY(2deg);
+  transition:0s;
+  padding:2rem 0;
+  margin:2rem 0;
+
+  *{
+    font-size:2rem;
+    color:white;
+    transform:skewY(-2deg);
+
+  }
+
+  &:hover{
+  }
+}
+
+
+section#video{
+  min-height: 50rem;
+  position:relative;
+  overflow: hidden;
+
+  .background{
+    position:absolute;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    height:100%;
+    width:100%;
+    object-fit: cover;
+  }
+
+  .foreground{
+    position: absolute;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.541);
+  }
+}
+
+
+  .slide-container{
+    position:relative;
+    height:10rem;
+    overflow: hidden;
+    box-sizing: border-box;
+
+    .inner{
+      padding:0;
+      margin:0;
+      width:calc( 100% * 4);
+      outline:solid;
+      display: flex;
+      animation: 10s infinite slide-left;
+      position:absolute;
+      left:0;
+      gap:0 !important;
+
+      div{
+          margin:0;
+          flex:1;
+          outline:solid;
+          overflow: hidden;
+      }
+
+    }
+
+  }
+
+  .slide-container .inner div{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 3rem;
+      font-family: var( --font-family-header );
+
+      &:nth-child(1){ background-color: bisque; }
+      &:nth-child(2n){ background-color: aqua; }
+
+  }
+
+
+
+
+
+@keyframes slide-left {
+  0% { left:0; }
+  20% { left:0; }
+  25% { left:-100%; }    
+  40% { left:-100%; }
+  50% { left:-200%; }
+  70% { left:-200%; }
+  75% { left:-300%; }
+  90% { left:-300%; }
+  100% { left:0; }
+}
+
+
+
+main#celebraciones{
+
   display: flex;
   flex-direction: column;
-  gap: 3rem;
+  gap:3rem;
   max-width: var(--site-width);
-  margin: auto;
-
-  h1 {
+  margin:auto;
+  
+  h1{
     font-family: var(--font-family-header);
-    font-size: 3rem;
+    font-size:3rem;
     height: 10rem;
     display: flex;
     justify-content: center;
@@ -59,60 +180,70 @@ main#celebraciones {
     text-align: center;
   }
 
-  section.chess {
+  section.chess{
 
-    .row {
+    .row{
       display: flex;
-      position: relative;
 
-      div {
-        flex: 1;
-        padding: 0;
+      div{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;        
+        flex:1;
+        padding:1rem;
+        position:relative;
 
-        h3 {
+        h3{
           font-family: var(--font-family-header);
-          font-size: 3rem;
+          font-size:3rem;
           line-height: 3rem;
-
         }
 
-        * {
-          font-size: 1.5rem;
+        *{
+          font-size:1.5rem;
           line-height: 2rem;
         }
+
       }
 
-      div:has(img) {
-        padding: 0;
-        position: relative;
-
-        img {
-          position: absolute;
-          width: 100%;
-          height: 100%;
-          top: 0;
-          right: 0;
-          left: 0;
-          bottom: 0;
-          object-fit: cover;
-          object-position: center center;
-        }
+      div:has(img){
+        padding:0;
       }
+      
+      img{
+        position:absolute;
+        width:100%;
+        height: 100%;
+        left:0;
+        right:0;
+        object-fit: cover;
+        object-position: center center;
+      }
+
     }
+
+
+
+
   }
 
 }
 
-main#Contacto {
+
+main#contacto{
+
   display: flex;
   flex-direction: column;
-  gap: 3rem;
+  gap:3rem;
   max-width: var(--site-width);
-  margin: auto;
+  margin:auto;
+  
 
-  h1 {
+  h1{
     font-family: var(--font-family-header);
-    font-size: 3rem;
+    font-size:3rem;
     height: 10rem;
     display: flex;
     justify-content: center;
@@ -120,64 +251,70 @@ main#Contacto {
     text-align: center;
   }
 
-  section {
-    font-size: 1.5rem;
-    display: flex;
-    gap: 5rem;
+  section{
 
+    font-size:1.5rem;
+    display:flex;
+    gap:5rem;
 
-    div {
-      flex: 1;
+    div{
+      flex:1;
     }
 
-    form {
+    form{
       display: flex;
       flex-direction: column;
-      gap: 2rem;
     }
 
-
-    form {
+    form div{
       display: flex;
       flex-direction: column;
       align-items: center;
-      transition: 0.3s;
-      padding: 1rem;
+      transition:0.3s;
+      padding:1rem;
 
-      input[type=text],
-      input[type=email],
-      textarea {
+      input[type=text], input[type=email], textarea{
         border-color: var(--primary-color);
         border-style: solid;
         border-width: 0 0 3px 0;
-        padding: 1rem;
-        font-size: inherit;
+        padding:1rem;
+        font-size:inherit;
       }
 
-      &:has(:focus) {
+      &:has(:focus){
         background-color: var(--primary-color);
         color: var(--font-color-cta);
 
-        * {
+        *:focus{
           background-color: inherit;
-          color: inherit;
+          color:inherit;
+          outline:none;
         }
 
       }
+
     }
+
+
+
   }
+
+
 }
 
-main#galeria {
+
+main#galeria{
+
   display: flex;
   flex-direction: column;
-  gap: 3rem;
+  gap:3rem;
   max-width: var(--site-width);
-  margin: auto;
+  margin:auto;
+  
 
-  h1 {
+  h1{
     font-family: var(--font-family-header);
-    font-size: 3rem;
+    font-size:3rem;
     height: 10rem;
     display: flex;
     justify-content: center;
@@ -185,59 +322,70 @@ main#galeria {
     text-align: center;
   }
 
-  .inner {
-    display: flex;
-    gap: 2rem;
+  .inner{
+    display:flex;
+    gap:2rem;
     flex-wrap: wrap;
     justify-content: center;
 
-    figure {
-      position: relative;
-      padding: 0;
-      margin: 0;
-      width: 230px;
-      height: 230px;
+    figure{
+      position:relative;
+      padding:0;
+      margin:0;
+      width:250px;
+      height:250px;
       transition: 0.4s;
 
-      img {
-        display: block;
-        width: 100%;
-        height: 100%;
+      img{
+        display:block;
+        width:100%;
+        height:100%;
         position: absolute;
-        left: 0;
-        right: 0;
+        left:0;
+        right:0;
       }
 
-      figcaption {
-        color: white;
-        position: absolute;
-        bottom: 0;
-        padding: 1rem 0.5rem;
-        left: 0;
-        right: 0;
-        background: linear-gradient(rgba(0, 0, 0, 0), var(--primary-color));
+      figcaption{
+        position:absolute;
+        bottom:0;
+        padding:1rem 0.5rem;
+        left:0;
+        right:0;
+        color:white;
+        background: linear-gradient( rgba(0,0,0,0), var(--primary-color) );
       }
 
-      &:hover {
+      &:hover{
         box-shadow: 0px 0px 10px 4px var(--primary-color);
+        /* transform:scale(3);
+        z-index: 9; */
       }
+
     }
   }
+
+
 }
 
-dialog#lightbox form {
+
+dialog#lightbox{
+  background-color: rgba(0,0,0,0.85);
+}
+
+dialog#lightbox form{
+
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 2rem;
+  gap:2rem;
 
-  img {
-    height: 80vh;
+  img{
+    height:80vh;
     object-fit: contain;
   }
 }
 
-dialog#lightbox::backdrop {
-  background-color: rgba(0, 0, 0, 0.5);
+dialog#lightbox::backdrop{
+  background-color: rgba(0,0,0,0.85);
 }
