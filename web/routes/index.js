@@ -53,7 +53,11 @@ router.get('/login',function(req, res){
 })
 
 router.get('/admin',function(req, res){
-  res.render("admin");
+  res.render("admin",);
+})
+
+router.post('/login',function(req, res){
+  res.redirect("/admin");
 })
 
 
