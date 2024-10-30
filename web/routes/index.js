@@ -57,7 +57,15 @@ router.get('/admin',function(req, res){
 })
 
 router.post('/login',function(req, res){
-  res.redirect("/admin");
+  const email = req.body.email;
+  const pass = req.body.password;
+
+  let user = datos.validateUser(email,pass);
+
+  console.log(user);
+
+  if(user)  res.redirect("/admin");
+  else res.redirect("/login");
 })
 
 

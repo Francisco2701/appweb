@@ -1,5 +1,6 @@
 var galeria = require("./data.json");
 var carta = require("./carta.json");
+var usuarios = require("./users.json");
 var contacos = [];
 
 function getGalleryData(){
@@ -31,11 +32,24 @@ function addContactos(nombre, email, mensaje, info){
     )
 }
 
+function validateUser(email, password){
+    let u = users.filter(
+        (u)=>{
+            return( (u.email==email) && (u.password==password) )
+        }
+    )
+    if(u.lentgh>0)
+        return u[0]
+    else
+        return null
+
+}
 
 module.exports = {
     getGalleryData,
     getAllCarta,
     getItemCarta,
     getAllContactos,
-    addContactos
+    addContactos,
+    validateUser
 }
