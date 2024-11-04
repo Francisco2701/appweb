@@ -35,14 +35,14 @@ function addContactos(nombre, email, mensaje, info){
 function validateUser(email, password){
     let u = users.filter(
         (u)=>{
-            return( (u.email==email) && (u.password==password) )
+            return( u.email==email && u.password==password )
         }
     )
-    if(u.lentgh>0)
+    if(u.length>0)
         return u[0]
     else
         return null
-
+    
 }
 
 module.exports = {

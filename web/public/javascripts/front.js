@@ -23,6 +23,7 @@ document.querySelectorAll("#galeria .inner figure").forEach( (el)=>{
     })
 })
 
+
  const inputInfo = document.querySelector("#inputInfo");
 if(inputInfo){
     inputInfo.value=window.userAgent;
